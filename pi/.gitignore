@@ -1,5 +1,3 @@
-!scripts/typings/express
-
 src/**/*.js
 src/**/*.js.map
 
