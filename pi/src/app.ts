@@ -1,4 +1,5 @@
 ﻿/// <reference path="../scripts/typings/node/node.d.ts" />
+/// <reference path="../scripts/typings/morgan/morgan.d.ts" />
 /// <reference path="../scripts/typings/express-/express.d.ts" />
 
 import express = require('express');
@@ -21,8 +22,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 // Setup router
-app.use('/bower_components', express.static(config.bowerFolder));
 app.use('/', require('./route/index'));
 
+// Start web app server
+app.listen(80, () => {
+    console.log('server started');
+});
 
 module.exports = app;

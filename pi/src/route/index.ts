@@ -1,8 +1,12 @@
 ﻿import express = require('express');
+import configAll = require('../config');
+import config = configAll.web;
 
 var router = express.Router();
 router
-    //.use('/user', require('./user/index'))
-   // .use('/post', require('./post/index'));
+
+    .use('/', express.static(config.distFolder))
+
+    .use('/bower_components', express.static(config.bowerFolder))
 
 export = router;

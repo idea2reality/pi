@@ -3,7 +3,7 @@
 // Definitions by: James Roland Cabresos <https://github.com/staticfunction>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-/// <reference path="../express/express.d.ts" />
+/// <reference path="../express-/express.d.ts" />
 declare module "morgan" {
 
     import express = require('express');

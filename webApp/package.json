@@ -1,5 +1,5 @@
 {
-    "name": "pi-web-app",
+    "name": "pi",
     "engines": {
         "node": ">= 0.10.0"
     },
