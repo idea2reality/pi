@@ -2,20 +2,39 @@
 module.exports = function (grunt) {
     
     // These plugins provide necessary tasks.
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-ts');
-    grunt.loadNpmTasks('grunt-execute');
+    grunt.loadNpmTasks('grunt-express-server');
     
     // Default task.
     grunt.registerTask('default', ['build']);
     grunt.registerTask('build', ['ts']);
-    grunt.registerTask('exe', ['execute']);
+    grunt.registerTask('server', ['express:dev', 'watch']);
     
     // Project configuration.
     grunt.initConfig({
         // Task configuration.
-        execute: {
-            server: {
-                src: ['src/app.js']
+        express: {
+            dev: {
+                options: {
+                    script: 'src/app.js'
+                }
+            }
+        },
+        watch: {
+            express: {
+                files:  [ 'src/**/*.js' ],
+                tasks:  [ 'express:dev' ],
+                options: {
+                    spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
+                }
+            },
+            // Reload grunt config when Gruntfile.js is changed
+            gruntFile: {
+                files: ['Gruntfile.js'],
+                options: {
+                    reload: true
+                }
             }
         },
         ts: {

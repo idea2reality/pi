@@ -35,7 +35,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="scripts\typings\express\express.d.ts" />
+    <Content Include="scripts\typings\express-\express.d.ts" />
     <TypeScriptCompile Include="scripts\typings\morgan\morgan.d.ts" />
     <TypeScriptCompile Include="src\app.ts" />
     <Content Include=".gitignore" />
@@ -46,11 +46,11 @@
     <TypeScriptCompile Include="src\route\index.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="scripts\typings\express-\" />
     <Folder Include="scripts\typings\morgan\" />
     <Folder Include="src\" />
     <Folder Include="scripts\" />
     <Folder Include="scripts\typings\" />
-    <Folder Include="scripts\typings\express\" />
     <Folder Include="scripts\typings\node\" />
     <Folder Include="src\route\" />
   </ItemGroup>

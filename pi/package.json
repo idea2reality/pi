@@ -8,8 +8,9 @@
         "email": ""
     },
     "dependencies": {
+        "grunt-contrib-watch": "~0.6.1",
         "grunt-ts": "~1.12.1",
-        "grunt-execute": "~0.2.2",
+        "grunt-express-server": "~0.4.19",
 
         "express": "~4.9.0",
         "body-parser": "~1.8.1",

@@ -8,6 +8,9 @@ import logger = require('morgan');
 //var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+import configAll = require('./config');
+import config = configAll.web;
+
 var app = express();
 
 app.use(logger('dev'));
@@ -18,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 // Setup router
+app.use('/bower_components', express.static(config.bowerFolder));
 app.use('/', require('./route/index'));
 
 
