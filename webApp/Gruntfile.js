@@ -73,7 +73,10 @@ module.exports = function (grunt) {
         watch: {
             sources: {
                 files: ['<%= src.index %>', '<%= src.tpl %>', '<%= src.css %>', '<%= src.tsout %>'],
-                tasks: ['clean', 'concat', 'copy']
+                tasks: ['clean', 'concat', 'copy'],
+                options: {
+                    livereload: true
+                }
             },
             // Reload grunt config when Gruntfile.js is changed
             gruntFile: {
