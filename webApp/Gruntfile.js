@@ -11,7 +11,7 @@ module.exports = function (grunt) {
 
     // Default task.
     grunt.registerTask('default', ['ts', 'clean', 'concat', 'copy']);
-    grunt.registerTask('dev', ['watch']);
+    grunt.registerTask('dev', ['default', 'watch']);
 
     // Project configuration.
     grunt.initConfig({
