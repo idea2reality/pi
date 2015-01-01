@@ -1,6 +1,8 @@
 ﻿/// <reference path="../scripts/typings/node/node.d.ts" />
 /// <reference path="../scripts/typings/morgan/morgan.d.ts" />
 /// <reference path="../scripts/typings/express-/express.d.ts" />
+/// <reference path="../scripts/typings/mongodb/mongodb.d.ts" />
+/// <reference path="../scripts/typings/async/async.d.ts" />
 
 import express = require('express');
 import path = require('path');
@@ -11,6 +13,7 @@ var bodyParser = require('body-parser');
 
 import configAll = require('./config');
 import config = configAll.web;
+import mongo = require('./mongo/index');
 
 var app = express();
 
@@ -24,9 +27,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Setup router
 app.use('/', require('./route/index'));
 
-// Start web app server
-app.listen(80, () => {
-    console.log('server started');
+mongo.connect((err) => {
+    if (err) return console.log(err);
+    console.log('+++ Mongodb connected');
+
+    // Start web app server
+    app.listen(config.port, () => {
+        console.log('+++ Web app server is listening on port ' + config.port);
+    });
 });
 
 module.exports = app;

@@ -22,7 +22,7 @@
                     .content(sw.name + ' = ' + sw.value)
                     .action('OK')
                     .highlightAction(false)
-                    .position('bottom right');
+                    //.position('bottom right');
                 $mdToast.show(toast).then(function () {
                     //alert('You clicked \'OK\'.');
                 });

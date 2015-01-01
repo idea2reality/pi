@@ -36,6 +36,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="scripts\typings\express-\express.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\async\async.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\mongodb\mongodb.d.ts" />
     <TypeScriptCompile Include="scripts\typings\morgan\morgan.d.ts" />
     <TypeScriptCompile Include="src\app.ts" />
     <Content Include=".gitignore" />
@@ -43,15 +45,25 @@
     <Content Include="README.md" />
     <TypeScriptCompile Include="scripts\typings\node\node.d.ts" />
     <TypeScriptCompile Include="src\config.ts" />
+    <TypeScriptCompile Include="src\mongo\index.ts" />
+    <TypeScriptCompile Include="src\mongo\pi\index.ts" />
+    <TypeScriptCompile Include="src\mongo\pi\switch\index.ts" />
+    <TypeScriptCompile Include="src\mongo\pi\schema.ts" />
+    <TypeScriptCompile Include="src\mongo\pi\switch\switch.ts" />
     <TypeScriptCompile Include="src\route\index.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="scripts\typings\async\" />
     <Folder Include="scripts\typings\express-\" />
+    <Folder Include="scripts\typings\mongodb\" />
     <Folder Include="scripts\typings\morgan\" />
     <Folder Include="src\" />
     <Folder Include="scripts\" />
     <Folder Include="scripts\typings\" />
     <Folder Include="scripts\typings\node\" />
+    <Folder Include="src\mongo\" />
+    <Folder Include="src\mongo\pi\" />
+    <Folder Include="src\mongo\pi\switch\" />
     <Folder Include="src\route\" />
   </ItemGroup>
   <ItemGroup>
