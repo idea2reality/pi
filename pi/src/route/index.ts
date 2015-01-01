@@ -7,6 +7,6 @@ router
 
     .use('/', express.static(config.distFolder))
 
-    .use('/bower_components', express.static(config.bowerFolder))
+    .use('/bower', express.static(config.bowerFolder))
 
 export = router;
