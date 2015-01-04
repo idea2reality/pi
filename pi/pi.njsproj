@@ -52,6 +52,8 @@
     <TypeScriptCompile Include="src\mongo\pi\switch\switch.ts" />
     <TypeScriptCompile Include="src\route\index.ts" />
     <TypeScriptCompile Include="test\writeConcernTest.ts" />
+    <TypeScriptCompile Include="src\route\switch\id\index.ts" />
+    <TypeScriptCompile Include="src\route\switch\index.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="test\" />
@@ -68,6 +70,8 @@
     <Folder Include="src\mongo\pi\switch\" />
     <Folder Include="src\pi\" />
     <Folder Include="src\route\" />
+    <Folder Include="src\route\switch\" />
+    <Folder Include="src\route\switch\id\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Gruntfile.js" />

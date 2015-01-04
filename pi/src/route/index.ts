@@ -9,4 +9,6 @@ router
 
     .use('/bower', express.static(config.bowerFolder))
 
+    .use('/switch', require('./switch/index'))
+
 export = router;
