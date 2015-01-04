@@ -386,15 +386,11 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-animate.d.ts" />
-    <TypeScriptCompile Include="scripts\typings\angularjs\angular-cookies.d.ts" />
-    <TypeScriptCompile Include="scripts\typings\angularjs\angular-mocks.d.ts" />
-    <TypeScriptCompile Include="scripts\typings\angularjs\angular-resource.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-route.d.ts" />
-    <TypeScriptCompile Include="scripts\typings\angularjs\angular-sanitize.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="src\control\controllers\controlCtrl.ts" />
-    <TypeScriptCompile Include="src\control\directives\siwtchDirective.ts" />
+    <TypeScriptCompile Include="src\control\directives\switchDirective.ts" />
     <TypeScriptCompile Include="src\control\index.ts" />
     <TypeScriptCompile Include="src\control\services\controlService.ts" />
     <TypeScriptCompile Include="src\index.ts" />
@@ -586,7 +582,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties bower_1json__JSONSchema="" package_1json__JSONSchema="" />
+      <UserProperties package_1json__JSONSchema="" bower_1json__JSONSchema="" />
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">

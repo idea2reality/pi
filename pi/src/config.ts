@@ -13,7 +13,8 @@ module config {
     }
 
     export var pi = {
-
+        ip: '192.168.137.10',
+        port: 9090
     }
 }
 

@@ -14,6 +14,8 @@ var bodyParser = require('body-parser');
 import configAll = require('./config');
 import config = configAll.web;
 import mongo = require('./mongo/index');
+import async = require('async');
+import pi = require('./pi/index');
 
 var app = express();
 
@@ -27,14 +29,28 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Setup router
 app.use('/', require('./route/index'));
 
-mongo.connect((err) => {
-    if (err) return console.log(err);
-    console.log('+++ Mongodb connected');
-
-    // Start web app server
-    app.listen(config.port, () => {
-        console.log('+++ Web app server is listening on port ' + config.port);
+// Load modules, and start web server
+async.parallel({
+    mongo: (callback) => {
+        mongo.connect((err) => {
+            callback(err, null);
+        });
+    },
+    pi: (callback) => {
+        callback(null, null);
+        /*
+        pi.connect(() => {
+            callback(null, null);
+        });
+*/
+    }
+},
+    (err, results) => {
+        // Start web app server
+        app.listen(config.port, () => {
+            console.log('+++ Web app server is listening on port ' + config.port);
+        });
     });
-});
+
 
 module.exports = app;

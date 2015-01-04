@@ -1,7 +1,9 @@
-﻿module control {
+﻿/// <reference path="../index.ts" />
+
+module control {
     export class ControlCtrl {
 
-        constructor($scope: IControlScope, $mdToast) {
+        constructor($scope: IControlScope, $mdToast, controlService: ControlService) {
             var switchNum = 4;
 
             $scope.switches = [];
@@ -18,13 +20,24 @@
             }
 
             $scope.onSwChange = (sw) => {
-                var toast = $mdToast.simple()
-                    .content(sw.name + ' = ' + sw.value)
-                    .action('OK')
-                    .highlightAction(false)
-                    //.position('bottom right');
-                $mdToast.show(toast).then(function () {
-                    //alert('You clicked \'OK\'.');
+                controlService.control(sw.name, sw.value, (result) => {
+                    var toast = $mdToast.simple()
+                        .action('OK')
+                        .highlightAction(false);
+
+                    if (result.err) {
+                        toast.content('FAIL');
+                        setTimeout(() => {
+                            sw.value = !sw.value;
+                            $scope.$apply();
+                        }, 500);
+                    } else {
+                        toast.content('SUCCESS')
+                    }
+
+                    $mdToast.show(toast).then(() => {
+                        //alert('You clicked \'OK\'.');
+                    });
                 });
             };
         }
@@ -41,4 +54,6 @@
         name: string;
         value: boolean;
     }
+
+    registerController('controlCtrl', ControlCtrl);
 }
