@@ -17,6 +17,8 @@ import mongo = require('./mongo/index');
 import async = require('async');
 import pi = require('./pi/index');
 
+var ping = require('ping');
+
 var app = express();
 
 app.use(logger('dev'));
@@ -37,12 +39,19 @@ async.parallel({
         });
     },
     pi: (callback) => {
-        callback(null, null);
-        /*
-        pi.connect(() => {
-            callback(null, null);
+        // Check pi is alive
+        ping.sys.probe(configAll.pi.ip, (isAlive: boolean) => {
+            if (isAlive) {
+                console.log('+++ Raspberry Pi is alive');
+                // Connect pi
+                pi.connect(() => {
+                    callback(null, null);
+                });
+            } else {
+                console.log('--- Raspberry Pi is dead');
+                callback(null, null);
+            }
         });
-*/
     }
 },
     (err, results) => {

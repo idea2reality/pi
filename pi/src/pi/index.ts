@@ -2,24 +2,29 @@
 import config = configAll.pi;
 import net = require('net');
 
-var client;
+var client: net.Socket;
 
 export function connect(callback: () => void) {
     client = new net.Socket();
     // Try to connect
     client.connect(config.port, config.ip, (event) => {
         console.log('+++ Raspberry Pi connected');
+        // Remove all listeners
+        client.removeAllListeners();
+        client.on('data', (data) => onData(data));
+
         callback();
     });
-    // Set connection timeout
-    setTimeout(() => {
+    // Set error listener once
+    client.once('error', (err: Error) => {
+        console.log('--- Raspberry Pi connection refused');
+        // Close socket
         client.destroy();
+        // Empty client socket
         client = null;
 
-        console.log('--- Raspberry Pi connection fail');
-
         callback();
-    }, 3000);
+    });
 }
 
 export function write(data, callback: (err) => void) {
@@ -29,4 +34,8 @@ export function write(data, callback: (err) => void) {
         });
     else
         callback(new Error('net socket is closed'));
+}
+
+function onData(data) {
+    console.log('*** pi: ' + data);
 }
