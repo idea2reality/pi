@@ -381,6 +381,12 @@
     <Content Include="Gruntfile.js" />
     <Content Include="src\control\templates\control.tpl.html" />
     <Content Include="src\index.html" />
+    <Content Include="src\style\StyleSheet1.css">
+      <DependentUpon>StyleSheet1.scss</DependentUpon>
+    </Content>
+    <Content Include="src\style\StyleSheet1.min.css">
+      <DependentUpon>StyleSheet1.css</DependentUpon>
+    </Content>
     <Content Include="tsout\tsout.js" />
     <Content Include="web.config" />
   </ItemGroup>
@@ -547,6 +553,10 @@
     <Content Include="bower_components\jquery\bower.json" />
     <Content Include="bower_components\jquery\dist\jquery.min.map" />
     <Content Include="bower_components\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="src\style\StyleSheet1.scss" />
+    <Content Include="src\style\StyleSheet1.css.map">
+      <DependentUpon>StyleSheet1.css</DependentUpon>
+    </Content>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -582,7 +592,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties package_1json__JSONSchema="" bower_1json__JSONSchema="" />
+      <UserProperties bower_1json__JSONSchema="" package_1json__JSONSchema="" />
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">

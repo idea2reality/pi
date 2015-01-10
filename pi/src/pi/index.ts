@@ -27,15 +27,16 @@ export function connect(callback: () => void) {
     });
 }
 
-export function write(data, callback: (err) => void) {
+export function write(data: Buffer, callback: (err) => void) {
     if (client != null)
         client.write(data, (err) => {
+            console.log('*** me: ' + data.toJSON());
             callback(err);
         });
     else
         callback(new Error('net socket is closed'));
 }
 
-function onData(data) {
-    console.log('*** pi: ' + data);
+function onData(data: Buffer) {
+    console.log('*** pi: ' + data.toJSON());
 }
