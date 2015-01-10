@@ -37,8 +37,11 @@
   <ItemGroup>
     <Content Include="scripts\typings\express-\express.d.ts" />
     <TypeScriptCompile Include="scripts\typings\async\async.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\extend\extend.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\mocha\mocha.d.ts" />
     <TypeScriptCompile Include="scripts\typings\mongodb\mongodb.d.ts" />
     <TypeScriptCompile Include="scripts\typings\morgan\morgan.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\should\should.d.ts" />
     <TypeScriptCompile Include="src\app.ts" />
     <Content Include=".gitignore" />
     <Content Include="package.json" />
@@ -52,11 +55,16 @@
     <TypeScriptCompile Include="src\mongo\pi\switch\switch.ts" />
     <TypeScriptCompile Include="src\pi\index.ts" />
     <TypeScriptCompile Include="src\route\index.ts" />
+    <TypeScriptCompile Include="test\mongo\pi\schema.spec.ts" />
     <TypeScriptCompile Include="test\writeConcernTest.ts" />
     <TypeScriptCompile Include="src\route\switch\id\index.ts" />
     <TypeScriptCompile Include="src\route\switch\index.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="scripts\typings\extend\" />
+    <Folder Include="scripts\typings\mocha\" />
+    <Folder Include="scripts\typings\should\" />
+    <Folder Include="src\mongo\pi\log\" />
     <Folder Include="test\" />
     <Folder Include="scripts\typings\async\" />
     <Folder Include="scripts\typings\express-\" />
@@ -73,6 +81,8 @@
     <Folder Include="src\route\" />
     <Folder Include="src\route\switch\" />
     <Folder Include="src\route\switch\id\" />
+    <Folder Include="test\mongo\" />
+    <Folder Include="test\mongo\pi\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Gruntfile.js" />
