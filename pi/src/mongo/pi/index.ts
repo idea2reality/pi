@@ -1,8 +1,11 @@
-﻿import mongodb = require('mongodb');
+﻿import async = require('async');
+import mongodb = require('mongodb');
 import MongoClient = mongodb.MongoClient;
 
 import configAll = require('../../config');
 import config = configAll.mongo;
+
+import switchColl = require('./switch/index');
 
 export var db: mongodb.Db;
 
@@ -12,7 +15,16 @@ export function connect(callback: (err) => void) {
         db = _db;
 
         // Start up mongodb actions
-        require('./switch/index');
-        callback(err);
+        var tasks = [];
+
+        tasks.push((callback) => {
+            switchColl.startUp(db, (err) => {
+                callback(err);
+            });
+        });
+
+        async.parallel(tasks, (err, results) => {
+            callback(err);
+        });
     });
 }
