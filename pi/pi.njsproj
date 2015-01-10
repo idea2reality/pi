@@ -56,6 +56,7 @@
     <TypeScriptCompile Include="src\pi\index.ts" />
     <TypeScriptCompile Include="src\route\index.ts" />
     <TypeScriptCompile Include="test\mongo\pi\schema.spec.ts" />
+    <TypeScriptCompile Include="test\tcpResponseTest.ts" />
     <TypeScriptCompile Include="test\writeConcernTest.ts" />
     <TypeScriptCompile Include="src\route\switch\id\index.ts" />
     <TypeScriptCompile Include="src\route\switch\index.ts" />
