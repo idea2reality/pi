@@ -43,6 +43,7 @@
     <TypeScriptCompile Include="scripts\typings\mongodb\mongodb.d.ts" />
     <TypeScriptCompile Include="scripts\typings\morgan\morgan.d.ts" />
     <TypeScriptCompile Include="scripts\typings\should\should.d.ts" />
+    <TypeScriptCompile Include="scripts\_references.ts" />
     <TypeScriptCompile Include="src\app.ts" />
     <Content Include=".gitignore" />
     <Content Include="package.json" />
@@ -56,11 +57,12 @@
     <TypeScriptCompile Include="src\mongo\pi\switch\switch.ts" />
     <TypeScriptCompile Include="src\pi\index.ts" />
     <TypeScriptCompile Include="src\route\index.ts" />
+    <TypeScriptCompile Include="src\util\resForm.ts" />
     <TypeScriptCompile Include="test\mongo\pi\schema.spec.ts" />
     <TypeScriptCompile Include="test\tcpResponseTest.ts" />
     <TypeScriptCompile Include="test\writeConcernTest.ts" />
-    <TypeScriptCompile Include="src\route\switch\id\index.ts" />
-    <TypeScriptCompile Include="src\route\switch\index.ts" />
+    <TypeScriptCompile Include="src\route\sw\id\index.ts" />
+    <TypeScriptCompile Include="src\route\sw\index.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dump\" />
@@ -68,6 +70,7 @@
     <Folder Include="scripts\typings\mocha\" />
     <Folder Include="scripts\typings\should\" />
     <Folder Include="src\mongo\pi\log\" />
+    <Folder Include="src\util\" />
     <Folder Include="test\" />
     <Folder Include="scripts\typings\async\" />
     <Folder Include="scripts\typings\express-\" />
@@ -82,8 +85,8 @@
     <Folder Include="src\mongo\pi\switch\" />
     <Folder Include="src\pi\" />
     <Folder Include="src\route\" />
-    <Folder Include="src\route\switch\" />
-    <Folder Include="src\route\switch\id\" />
+    <Folder Include="src\route\sw\" />
+    <Folder Include="src\route\sw\id\" />
     <Folder Include="test\mongo\" />
     <Folder Include="test\mongo\pi\" />
   </ItemGroup>

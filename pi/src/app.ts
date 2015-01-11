@@ -1,8 +1,4 @@
-﻿/// <reference path="../scripts/typings/node/node.d.ts" />
-/// <reference path="../scripts/typings/morgan/morgan.d.ts" />
-/// <reference path="../scripts/typings/express-/express.d.ts" />
-/// <reference path="../scripts/typings/mongodb/mongodb.d.ts" />
-/// <reference path="../scripts/typings/async/async.d.ts" />
+﻿/// <reference path="../scripts/_references.ts" />
 
 import express = require('express');
 import path = require('path');

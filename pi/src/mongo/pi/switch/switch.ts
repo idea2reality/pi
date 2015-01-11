@@ -1,17 +1,23 @@
 ﻿/**
  * Handle single switch actions
  */
+import mongodb = require('mongodb');
+import Db = mongodb.Db;
+import Collection = mongodb.Collection;
+import index = require('./index');
+
+var coll: Collection;
+
+
 
 export function insertLog() {
 
 }
 
-import index = require('./index');
-var coll = index.coll;
-console.log(coll);
-setTimeout(() => {
-    console.log('safsad');
-    console.log(coll);
-}, 500);
 
-console.log('+++ Switch collection module');
+
+// Get collection
+index.getCollection((_coll) => {
+    coll = _coll;
+    console.log('+++ Collection "switch" module "switch" is ready');
+});

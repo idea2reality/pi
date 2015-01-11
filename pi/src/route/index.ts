@@ -9,6 +9,6 @@ router
 
     .use('/bower', express.static(config.bowerFolder))
 
-    .use('/switch', require('./switch/index'))
+    .use('/sw', require('./sw/index'))
 
 export = router;

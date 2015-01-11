@@ -6,7 +6,7 @@ import ObjectID = mongodb.ObjectID;
 import should = require('should');
 import schema = require('../../../src/mongo/pi/schema');
 import Log = schema.Log;
-import LogConstructorData = schema.LogConstructorData;
+import LogConstructorData = schema.ILogConData;
 
 describe('MongoDB pi schema', () => {
     describe('Class Log', () => {

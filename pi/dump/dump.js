@@ -1,40 +1,38 @@
 ﻿/// <reference path="../scripts/_references.ts" />
-
 var numOfSwitch = 2;
 
-import async = require('async');
+var async = require('async');
 
-import mongo = require('../src/mongo/index');
-import pi = require('../src/mongo/pi/switch/index');
-import schema = require('../src/mongo/pi/schema');
-import Switch = schema.Switch;
-import ISwConData = schema.ISwConData;
+var mongo = require('../src/mongo/index');
+var pi = require('../src/mongo/pi/switch/index');
+var schema = require('../src/mongo/pi/schema');
+var Switch = schema.Switch;
 
 /**
- * Execute dump tasks as series
- */
+* Execute dump tasks as series
+*/
 async.series([
     function (callback) {
         /**
-         * Connect mongodb
-         */
-        mongo.connect((err) => {
+        * Connect mongodb
+        */
+        mongo.connect(function (err) {
             callback(err);
         });
     },
     function (callback) {
         /**
-         * Drop "switch" collection
-         */
+        * Drop "switch" collection
+        */
         console.log('=== Drop collection "switch"');
-        pi.drop((err) => {
+        pi.drop(function (err) {
             callback(err);
         });
     },
     function (callback) {
         /**
-         * Insert siwtches into db
-         */
+        * Insert siwtches into db
+        */
         console.log('=== Insert switches');
 
         var sw1 = new Switch({
@@ -58,28 +56,27 @@ async.series([
         });
 
         // Insert each switch as series task
-        async.eachSeries([sw1, sw2],
-            function (sw, callback) {
-                pi.insert(sw, (err) => {
-                    callback(err);
-                });
-            },
-            function (err) {
+        async.eachSeries([sw1, sw2], function (sw, callback) {
+            pi.insert(sw, function (err) {
                 callback(err);
             });
+        }, function (err) {
+            callback(err);
+        });
     },
     function (callback) {
         /**
-         * Show inserted switches so that I can check switches inserted correctly
-         */
-        pi.list((err, sws) => {
-            if (err) return callback(err);
+        * Show inserted switches so that I can check switches inserted correctly
+        */
+        pi.list(function (err, sws) {
+            if (err)
+                return callback(err);
             console.log('=== List of inserted siwtches');
             console.log(sws);
             callback(null);
         });
     }
-],
-    (err, results) => {
-        console.log('Dump finish');
-    });
+], function (err, results) {
+    console.log('Dump finish');
+});
+//# sourceMappingURL=dump.js.map

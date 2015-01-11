@@ -10,7 +10,7 @@ export function connect(callback: (err) => void) {
         }
     },
         (err, results) => {
-            console.log('+++ Mongodb connected');
+            console.log('+++ MongoDB ready');
             callback(err);
         });
 }

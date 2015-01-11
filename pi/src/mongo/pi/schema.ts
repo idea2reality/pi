@@ -2,7 +2,7 @@
 import mongodb = require('mongodb');
 import ObjectID = mongodb.ObjectID;
 
-export interface SwitchConstructorData {
+export interface ISwConData {
     name: string;
     gid: number;
     did: number;
@@ -16,13 +16,13 @@ export class Switch {
     did: number;                        // LED device id
     tcp: { on: number; off: number; };  // tcp protocol which will be sent to raspberry pi
 
-    constructor(data: SwitchConstructorData) {
+    constructor(data: ISwConData) {
         extend(this, data);
         this._id = new ObjectID();
     }
 }
 
-export interface LogConstructorData {
+export interface ILogConData {
     _id: any;           // string or ObjectID
     oldValue: boolean;
     newValue: boolean;
@@ -34,13 +34,13 @@ export class Log {
     oldValue: boolean;
     newValue: boolean;
 
-    constructor(data: LogConstructorData)
+    constructor(data: ILogConData)
     constructor(_id: string, oldValue: boolean, newValue: boolean)
     constructor(_id: ObjectID, oldValue: boolean, newValue: boolean)
     constructor(...args: any[]) {
         var errHeader = 'Log contructor: ';
 
-        var data: LogConstructorData;
+        var data: ILogConData;
 
         // Properties which will be stored in mongodb
         var _id;
