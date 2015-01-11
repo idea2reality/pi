@@ -4,20 +4,15 @@
 import mongodb = require('mongodb');
 import Db = mongodb.Db;
 import Collection = mongodb.Collection;
-import index = require('./index');
+import main = require('./index');
+import pi = require('../index');
 
-var coll: Collection;
+var db: Db = pi.db;
+var coll: Collection = db.collection('switch');
+console.log('+++ Collection "switch" switch module loaded');
 
 
 
 export function insertLog() {
 
 }
-
-
-
-// Get collection
-index.getCollection((_coll) => {
-    coll = _coll;
-    console.log('+++ Collection "switch" module "switch" is ready');
-});

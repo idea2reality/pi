@@ -23,8 +23,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(express.static(path.join(__dirname, 'public')));
 
 
-// Setup router
-app.use('/', require('./route/index'));
 
 // Load modules, and start web server
 async.parallel({
@@ -35,11 +33,23 @@ async.parallel({
     }
 },
     (err, results) => {
+        /**
+         * Router has to be set here after mongodb connected.
+         * Because of lazy loading of collection modules.
+         * 
+         * <require process>
+         * [connect mongodb]
+         * ->[get db object]: now we can get collections
+         * ->[set router]: require modules that require db object
+         * ->[load collection modules]
+         */
+
+        // Set router.
+        app.use('/', require('./route/index'));
         // Start web app server
         app.listen(config.port, () => {
             console.log('+++ Web app server is listening on port ' + config.port);
         });
     });
 
-
-module.exports = app;
+export = app;

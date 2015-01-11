@@ -1,38 +1,24 @@
-﻿/// <reference path="../scripts/_references.ts" />
-var numOfSwitch = 2;
-
-var async = require('async');
+﻿var async = require('async');
 
 var mongo = require('../src/mongo/index');
-var pi = require('../src/mongo/pi/switch/index');
+var swColl = require('../src/mongo/pi/switch/index');
 var schema = require('../src/mongo/pi/schema');
 var Switch = schema.Switch;
 
-/**
-* Execute dump tasks as series
-*/
 async.series([
     function (callback) {
-        /**
-        * Connect mongodb
-        */
         mongo.connect(function (err) {
             callback(err);
         });
     },
     function (callback) {
-        /**
-        * Drop "switch" collection
-        */
         console.log('=== Drop collection "switch"');
-        pi.drop(function (err) {
-            callback(err);
+
+        swColl.drop(function (err) {
+            callback(null);
         });
     },
     function (callback) {
-        /**
-        * Insert siwtches into db
-        */
         console.log('=== Insert switches');
 
         var sw1 = new Switch({
@@ -55,9 +41,8 @@ async.series([
             }
         });
 
-        // Insert each switch as series task
         async.eachSeries([sw1, sw2], function (sw, callback) {
-            pi.insert(sw, function (err) {
+            swColl.insert(sw, function (err) {
                 callback(err);
             });
         }, function (err) {
@@ -65,10 +50,7 @@ async.series([
         });
     },
     function (callback) {
-        /**
-        * Show inserted switches so that I can check switches inserted correctly
-        */
-        pi.list(function (err, sws) {
+        swColl.list(function (err, sws) {
             if (err)
                 return callback(err);
             console.log('=== List of inserted siwtches');
@@ -77,6 +59,8 @@ async.series([
         });
     }
 ], function (err, results) {
+    if (err)
+        console.log(err);
     console.log('Dump finish');
+    process.exit(0);
 });
-//# sourceMappingURL=dump.js.map

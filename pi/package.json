@@ -25,6 +25,7 @@
         "grunt-contrib-watch": "~0.6.1",
         "grunt-ts": "~1.12.1",
         "grunt-express-server": "~0.4.19",
+        "grunt-execute": "~0.2.2",
         "should": "~4.4.4"
     }
 }

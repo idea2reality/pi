@@ -1,11 +1,9 @@
 ﻿/// <reference path="../scripts/_references.ts" />
 
-var numOfSwitch = 2;
-
 import async = require('async');
 
 import mongo = require('../src/mongo/index');
-import pi = require('../src/mongo/pi/switch/index');
+import swColl = require('../src/mongo/pi/switch/index');
 import schema = require('../src/mongo/pi/schema');
 import Switch = schema.Switch;
 import ISwConData = schema.ISwConData;
@@ -27,8 +25,10 @@ async.series([
          * Drop "switch" collection
          */
         console.log('=== Drop collection "switch"');
-        pi.drop((err) => {
-            callback(err);
+
+        swColl.drop((err) => {
+            // Ignore error. Maybe there is no "switch" collection.
+            callback(null);
         });
     },
     function (callback) {
@@ -60,7 +60,7 @@ async.series([
         // Insert each switch as series task
         async.eachSeries([sw1, sw2],
             function (sw, callback) {
-                pi.insert(sw, (err) => {
+                swColl.insert(sw, (err) => {
                     callback(err);
                 });
             },
@@ -72,7 +72,7 @@ async.series([
         /**
          * Show inserted switches so that I can check switches inserted correctly
          */
-        pi.list((err, sws) => {
+        swColl.list((err, sws) => {
             if (err) return callback(err);
             console.log('=== List of inserted siwtches');
             console.log(sws);
@@ -81,5 +81,7 @@ async.series([
     }
 ],
     (err, results) => {
+        if (err) console.log(err);
         console.log('Dump finish');
+        process.exit(0);
     });
