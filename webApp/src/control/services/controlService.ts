@@ -9,7 +9,7 @@ module control {
         }
 
         control(switchId: string, value: boolean, callback?: (result) => void) {
-            this.http.post('/switch/' + switchId + '/control', { value: value })
+            this.http.post('/sw/' + switchId + '/control', { value: value })
                 .success((result) => {
                     if (callback)
                         callback(result);

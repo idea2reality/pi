@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dump\" />
+    <Folder Include="mongoShell\" />
     <Folder Include="scripts\typings\extend\" />
     <Folder Include="scripts\typings\mocha\" />
     <Folder Include="scripts\typings\should\" />
@@ -92,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Gruntfile.js" />
+    <Compile Include="mongoShell\dump.js" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
   <ProjectExtensions>

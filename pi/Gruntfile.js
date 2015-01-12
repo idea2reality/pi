@@ -5,13 +5,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('grunt-express-server');
-    grunt.loadNpmTasks('grunt-execute');
     
     // Default task.
     grunt.registerTask('default', ['build']);
     grunt.registerTask('build', ['ts']);
     grunt.registerTask('server', ['express:dev', 'watch']);
-    grunt.registerTask('dump', ['ts:dump', 'execute:dump']);
     
     // Project configuration.
     grunt.initConfig({
@@ -54,26 +52,6 @@ module.exports = function (grunt) {
                     // true (default) | false
                     removeComments: true
                 }
-            },
-            dump: {
-                src: ["dump/**/*.ts"],
-                options: {
-                    // 'es3' (default) | 'es5'
-                    target: 'es5',
-                    // 'amd' (default) | 'commonjs'
-                    module: 'commonjs',
-                    // true (default) | false
-                    sourceMap: false,
-                    // true | false (default)
-                    declaration: false,
-                    // true (default) | false
-                    removeComments: true
-                }
-            }
-        },
-        execute: {
-            dump: {
-                src: ['dump/dump.js']
             }
         }
     });

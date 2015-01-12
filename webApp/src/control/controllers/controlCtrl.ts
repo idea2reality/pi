@@ -3,21 +3,10 @@
 module control {
     export class ControlCtrl {
 
-        constructor($scope: IControlScope, $mdToast, controlService: ControlService) {
+        constructor($scope: IControlScope, $mdToast, controlService: ControlService, swService: SwService) {
             var switchNum = 4;
 
-            $scope.switches = [];
-
-            for (var i = 0; i < switchNum; i++) {
-                var sw = new Switch();
-                sw.name = 'Switch ' + i;
-                if (Math.round(Math.random()))
-                    sw.value = true;
-                else
-                    sw.value = false;
-
-                $scope.switches.push(sw);
-            }
+            $scope.switches = swService.list();
 
             $scope.onSwChange = (sw) => {
                 controlService.control(sw.name, sw.value, (result) => {

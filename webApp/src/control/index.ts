@@ -17,11 +17,8 @@
     }
 
     export function registerDirective(directiveName: string, directiveFunction: (...services) => ng.IDirective) {
-        console.log(directiveName);
         angular.module(ngModuleName)
             .directive(directiveName, directiveFunction);
-
-        console.log(directiveFunction);
     }
 
     export interface IClass {
