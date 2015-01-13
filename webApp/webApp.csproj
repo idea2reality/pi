@@ -380,6 +380,7 @@
     <Content Include="bower_components\jquery\src\wrap.js" />
     <Content Include="Gruntfile.js" />
     <Content Include="src\control\templates\control.tpl.html" />
+    <Content Include="src\control\templates\toast-template.tpl.html" />
     <Content Include="src\index.html" />
     <Content Include="src\style\body.css">
       <DependentUpon>body.scss</DependentUpon>
@@ -596,7 +597,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties bower_1json__JSONSchema="" package_1json__JSONSchema="" />
+      <UserProperties package_1json__JSONSchema="" bower_1json__JSONSchema="" />
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">

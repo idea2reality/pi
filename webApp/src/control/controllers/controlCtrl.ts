@@ -9,7 +9,11 @@ module control {
             $scope.switches = swService.list();
 
             $scope.onSwChange = (sw) => {
-                controlService.control(sw.name, sw.value, (result) => {
+                controlService.control(sw._id, sw.value, (result) => {
+                    $mdToast.show({
+                        templateUrl: 'tpl/toast-template.tpl.html',
+                        hideDelay: 6000
+                    });
                     var toast = $mdToast.simple()
                         .action('OK')
                         .highlightAction(false);
@@ -23,10 +27,6 @@ module control {
                     } else {
                         toast.content('SUCCESS')
                     }
-
-                    $mdToast.show(toast).then(() => {
-                        //alert('You clicked \'OK\'.');
-                    });
                 });
             };
         }
@@ -39,7 +39,7 @@ module control {
     }
 
     export class Switch {
-        id: string;
+        _id: string;
         name: string;
         value: boolean;
     }

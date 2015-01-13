@@ -14,13 +14,12 @@ router
     })
 
     .param('id', (req, res, next, id) => {
-        /**
-         * FIX HERE:
-         *  Find siwtch doc in mongodb
-         */
-        req['id'] = id;
-
-        next();
+        // Find a switch by id
+        swDb.sw.findOne(id, (err, sw) => {
+            if (err) return res.json(new ResForm(err, null));
+            req['sw'] = sw;
+            next();
+        });
     })
 
     .use('/:id', require('./id/index'))

@@ -3,9 +3,10 @@
 /// <reference path="../scripts/typings/jquery/jquery.d.ts" />
 
 /// <reference path="control/index.ts" />
+/// <reference path="sw/index.ts" />
 
 
-angular.module('app', ['ngRoute', 'control', 'ngMaterial', 'ngAria', 'ngAnimate'])
+angular.module('app', ['ngRoute', 'control', 'sw', 'ngMaterial', 'ngAria', 'ngAnimate'])
 
     .config(($routeProvider: ng.route.IRouteProvider) => {
         $routeProvider

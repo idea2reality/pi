@@ -52,6 +52,7 @@
     <TypeScriptCompile Include="src\config.ts" />
     <TypeScriptCompile Include="src\mongo\index.ts" />
     <TypeScriptCompile Include="src\mongo\pi\index.ts" />
+    <TypeScriptCompile Include="src\mongo\pi\swLog\index.ts" />
     <TypeScriptCompile Include="src\mongo\pi\switch\index.ts" />
     <TypeScriptCompile Include="src\mongo\pi\schema.ts" />
     <TypeScriptCompile Include="src\mongo\pi\switch\switch.ts" />
@@ -70,7 +71,7 @@
     <Folder Include="scripts\typings\extend\" />
     <Folder Include="scripts\typings\mocha\" />
     <Folder Include="scripts\typings\should\" />
-    <Folder Include="src\mongo\pi\log\" />
+    <Folder Include="src\mongo\pi\swLog\" />
     <Folder Include="src\util\" />
     <Folder Include="test\" />
     <Folder Include="scripts\typings\async\" />

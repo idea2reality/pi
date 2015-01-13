@@ -7,8 +7,8 @@ import Db = mongodb.Db;
 import Collection = mongodb.Collection;
 import pi = require('../index');
 import schema = require('../schema');
-import SwitchConstructorData = schema.ISwConData;
-import Switch = schema.Switch;
+import ISwConData = schema.ISwConData;
+export import Switch = schema.Switch;
 
 var db: Db;
 var coll: Collection;
@@ -18,7 +18,7 @@ db = pi.db;
 coll = db.collection('switch');
 console.log('+++ Collection "switch" main module loaded');
 
-export function insert(data: SwitchConstructorData, callback: (err) => void) {
+export function insert(data: ISwConData, callback: (err) => void) {
     // Create new switch object
     var sw = new Switch(data);
     // Insert into mongodb
