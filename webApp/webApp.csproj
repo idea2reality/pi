@@ -401,6 +401,9 @@
     <TypeScriptCompile Include="src\control\services\controlService.ts" />
     <TypeScriptCompile Include="src\control\services\swService.ts" />
     <TypeScriptCompile Include="src\index.ts" />
+    <TypeScriptCompile Include="src\sw\index.ts" />
+    <TypeScriptCompile Include="src\sw\interfaces\ISwitch.ts" />
+    <TypeScriptCompile Include="src\sw\Switch.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
@@ -593,7 +596,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties package_1json__JSONSchema="" bower_1json__JSONSchema="" />
+      <UserProperties bower_1json__JSONSchema="" package_1json__JSONSchema="" />
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
