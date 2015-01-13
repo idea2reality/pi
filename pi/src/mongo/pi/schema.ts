@@ -29,21 +29,21 @@ export interface ILogConData {
 }
 
 export class Log {
-    _id: ObjectID;              // references Switch._id
-    date: Date;
+    _id: Date;
+    swId: ObjectID;              // references Switch._id
     oldValue: boolean;
     newValue: boolean;
 
     constructor(data: ILogConData)
-    constructor(_id: string, oldValue: boolean, newValue: boolean)
-    constructor(_id: ObjectID, oldValue: boolean, newValue: boolean)
+    constructor(swId: string, oldValue: boolean, newValue: boolean)
+    constructor(swId: ObjectID, oldValue: boolean, newValue: boolean)
     constructor(...args: any[]) {
         var errHeader = 'Log contructor: ';
 
         var data: ILogConData;
 
         // Properties which will be stored in mongodb
-        var _id;
+        var swId;
         var oldValue;
         var newValue;
         var date = new Date();
@@ -70,9 +70,9 @@ export class Log {
 
             // Check _id
             if (typeof args[0] == 'string')
-                _id = new ObjectID(args[0]);
+                swId = new ObjectID(args[0]);
             else if (typeof args[0] == 'object')
-                _id = args[0];
+                swId = args[0];
             else
                 err = new Error(errHeader + '_id should be string or ObjectID');
 
@@ -92,8 +92,8 @@ export class Log {
                 throw err;
 
             // Write properties
-            this._id = _id;
-            this.date = date;
+            this.swId = swId;
+            this._id = date;
             this.oldValue = oldValue;
             this.newValue = newValue;
         }
