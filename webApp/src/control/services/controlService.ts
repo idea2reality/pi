@@ -10,9 +10,9 @@ module control {
 
         control(switchId: string, value: boolean, callback?: (result) => void) {
             this.http.post('/sw/' + switchId + '/control', { value: value })
-                .success((result) => {
+                .success((res) => {
                     if (callback)
-                        callback(result);
+                        callback(res);
                 });
         }
     }

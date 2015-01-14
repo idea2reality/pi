@@ -51,17 +51,19 @@ export function write(data: Buffer, callback: (err: Error, data: Buffer) => void
 
     // Connect raspberry pi
     tasks.push((callback) => {
+        console.log('=== Checking raspberry pi is alive...');
         // Check pi is alive
         ping.sys.probe(configAll.pi.ip, (isAlive: boolean) => {
             if (isAlive) {
                 console.log('+++ Raspberry Pi is alive');
+                console.log('=== Connecting to raspberry pi...');
                 // Connect pi
                 connect((err) => {
                     callback(err);
                 });
             } else {
                 console.log('--- Raspberry Pi is dead');
-                callback(null);
+                callback(new Error('Raspberry pi is dead'));
             }
         });
     });

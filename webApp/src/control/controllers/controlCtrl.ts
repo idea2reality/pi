@@ -24,10 +24,11 @@ module control {
 
                     var toast = $mdToast.simple()
                         .action('OK')
-                        .highlightAction(false);
+                        .highlightAction(false)
+                        .position('bottom right');
 
                     if (result.err) {
-                        toast.content('FAIL');
+                        toast.content('Fail: ' + result.data.msg);
 
                         setTimeout(() => {
                             sw.value = !sw.value;

@@ -2,7 +2,7 @@
 import Switch = swDb.Switch;
 import express = require('express');
 import pi = require('../../../pi/index');
-import resForm = require('../../../util/resForm');
+import ResForm = require('../../../util/resForm');
 
 
 var router = express.Router();
@@ -10,24 +10,36 @@ router
 
     .get('/', (req, res, next) => {
         var sw: Switch = req['sw'];
-        res.json(new resForm(null, sw));
+
+        res.json(new ResForm(null, sw));
     })
 
     .post('/control', (req, res, next) => {
+        var sw: Switch = req['sw'];
         var value = req.body['value'];
 
-        pi.write(new Buffer([0x01]), (err) => {
+        // Buffer which will be sent to raspberry pi
+        var buff;
+        if (value)
+            buff = new Buffer([sw.tcp.on]);
+        else
+            buff = new Buffer([sw.tcp.off]);
+        // Send buffer to raspberry pi
+        pi.write(buff, (err) => {
+            // Send response to client
             if (err)
-                res.json({
-                    err: 1,
-                    id: req['id']
-                });
+                res.json(new ResForm(err,
+                    {
+                        _id: sw._id,
+                        value: value,
+                        msg: err.message
+                    }));
             else
-                res.json({
-                    err: 0,
-                    id: req['id'],
-                    value: value
-                });
+                res.json(new ResForm(null,
+                    {
+                        _id: sw._id,
+                        value: value
+                    }));
         });
 
     });
