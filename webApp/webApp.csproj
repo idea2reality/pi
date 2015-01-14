@@ -379,15 +379,23 @@
     <Content Include="bower_components\jquery\src\var\toString.js" />
     <Content Include="bower_components\jquery\src\wrap.js" />
     <Content Include="Gruntfile.js" />
+    <Content Include="src\common\style\progress.css">
+      <DependentUpon>progress.scss</DependentUpon>
+    </Content>
+    <Content Include="src\common\style\progress.min.css">
+      <DependentUpon>progress.css</DependentUpon>
+    </Content>
+    <Content Include="src\common\templates\progressLinear.tpl.html" />
     <Content Include="src\control\templates\control.tpl.html" />
     <Content Include="src\control\templates\toast-template.tpl.html" />
     <Content Include="src\index.html" />
-    <Content Include="src\style\body.css">
-      <DependentUpon>body.scss</DependentUpon>
+    <Content Include="src\index.css">
+      <DependentUpon>index.scss</DependentUpon>
     </Content>
-    <Content Include="src\style\body.min.css">
-      <DependentUpon>body.css</DependentUpon>
+    <Content Include="src\index.min.css">
+      <DependentUpon>index.css</DependentUpon>
     </Content>
+    <Content Include="src\sw\templates\switchDirective.tpl.html" />
     <Content Include="tsout\tsout.js" />
     <Content Include="web.config" />
   </ItemGroup>
@@ -396,15 +404,18 @@
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-route.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="src\common\index.ts" />
+    <TypeScriptCompile Include="src\common\services\irProgressService.ts" />
     <TypeScriptCompile Include="src\control\controllers\controlCtrl.ts" />
     <TypeScriptCompile Include="src\control\directives\switchDirective.ts" />
     <TypeScriptCompile Include="src\control\index.ts" />
     <TypeScriptCompile Include="src\control\services\controlService.ts" />
     <TypeScriptCompile Include="src\control\services\swService.ts" />
     <TypeScriptCompile Include="src\index.ts" />
+    <TypeScriptCompile Include="src\sw\directives\switchDirective.ts" />
     <TypeScriptCompile Include="src\sw\index.ts" />
     <TypeScriptCompile Include="src\sw\interfaces\ISwitch.ts" />
-    <TypeScriptCompile Include="src\sw\Switch.ts" />
+    <TypeScriptCompile Include="src\sw\models\Switch.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
@@ -558,9 +569,13 @@
     <Content Include="bower_components\jquery\bower.json" />
     <Content Include="bower_components\jquery\dist\jquery.min.map" />
     <Content Include="bower_components\jquery\src\sizzle\dist\sizzle.min.map" />
-    <Content Include="src\style\body.scss" />
-    <Content Include="src\style\body.css.map">
-      <DependentUpon>body.css</DependentUpon>
+    <Content Include="src\index.scss" />
+    <Content Include="src\index.css.map">
+      <DependentUpon>index.css</DependentUpon>
+    </Content>
+    <Content Include="src\common\style\progress.scss" />
+    <Content Include="src\common\style\progress.css.map">
+      <DependentUpon>progress.css</DependentUpon>
     </Content>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
@@ -571,7 +586,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dist\" />
-    <Folder Include="src\common\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>

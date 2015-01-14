@@ -1,6 +1,9 @@
 ﻿/// <reference path="../index.ts" />
 
 module control {
+    import ISwitch = sw.ISwitch;
+    import Switch = sw.Switch;
+
     export class SwService {
         private http: ng.IHttpService;
 
@@ -19,7 +22,7 @@ module control {
                     if (err) return console.error(err);
 
                     data.forEach((sw) => {
-                        sws.push(sw);
+                        sws.push(new Switch(sw));
                     });
 
                     if (callback)

@@ -1,11 +1,7 @@
-﻿/// <reference path="../sw/index.ts" />
-/// <reference path="../common/index.ts" />
+﻿module common {
+    var ngModuleName = 'common';
 
-module control {
-    var ngModuleName = 'control';
-
-    var modules = [
-    ];
+    var modules = ['ngMaterial', 'ngAria', 'ngAnimate'];
 
     angular.module(ngModuleName, modules);
 

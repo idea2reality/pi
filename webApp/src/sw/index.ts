@@ -1,4 +1,7 @@
-﻿module sw {
+﻿/// <reference path="models/switch.ts" />
+/// <reference path="interfaces/iswitch.ts" />
+
+module sw {
     var ngModuleName = 'sw';
 
     var modules = ['ngMaterial', 'ngAria', 'ngAnimate'];

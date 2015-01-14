@@ -1,6 +1,14 @@
-﻿<div flex layout="column" layout-align="start start" layout-margin ng-controller="controlCtrl">
+﻿<div flex
+     layout="column"
+     layout-align="start start"
+     layout-margin
+     ng-controller="controlCtrl">
+
     <div flex ng-repeat="sw in switches">
-        <md-switch ng-model="sw.value" ng-change="onSwChange(sw)" aria-label="switch-{{::sw.name}}">
+        <md-switch ng-model="sw.value"
+                   ng-change="onSwChange(sw)"
+                   ng-disabled="sw.isDisabled"
+                   aria-label="switch-{{::sw.name}}">
             {{::sw.name}}: {{ sw.value }}
         </md-switch>
     </div>

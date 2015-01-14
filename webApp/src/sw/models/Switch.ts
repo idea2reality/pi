@@ -1,4 +1,4 @@
-﻿/// <reference path="interfaces/iswitch.ts" />
+﻿/// <reference path="../interfaces/iswitch.ts" />
 
 module sw {
     export class Switch implements ISwitch {
@@ -6,11 +6,15 @@ module sw {
         name: string;
 
         value: boolean;
+        isDisabled: boolean;
 
         private http: ng.IHttpService;
 
         constructor(swData: ISwitch) {
             $.extend(this, swData);
+
+            this.value = false;
+            this.isDisabled = false;
 
             this.http = angular.injector(['ng']).get('$http');
         }

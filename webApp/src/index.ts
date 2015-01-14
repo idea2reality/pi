@@ -4,9 +4,10 @@
 
 /// <reference path="control/index.ts" />
 /// <reference path="sw/index.ts" />
+/// <reference path="common/index.ts" />
 
 
-angular.module('app', ['ngRoute', 'control', 'sw', 'ngMaterial', 'ngAria', 'ngAnimate'])
+angular.module('app', ['ngRoute', 'common', 'control', 'sw', 'ngMaterial', 'ngAria', 'ngAnimate'])
 
     .config(($routeProvider: ng.route.IRouteProvider) => {
         $routeProvider
@@ -17,4 +18,8 @@ angular.module('app', ['ngRoute', 'control', 'sw', 'ngMaterial', 'ngAria', 'ngAn
             .otherwise({
                 redirectTo: '/'
             });
+    })
+
+    .run((irProgressService) => {
+
     });
