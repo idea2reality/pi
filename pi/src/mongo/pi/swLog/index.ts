@@ -22,11 +22,12 @@ console.log('+++ Collection "swLog" main module loaded');
 
 
 
-export function insert(log: Log, callback: (err) => void) {
+export function insert(log: Log, callback?: (err) => void) {
     // Insert into mongodb
     coll.insert(log, (err, result) => {
         if (err) return callback(err);
 
-        callback(null);
+        if (callback)
+            callback(null);
     });
 }

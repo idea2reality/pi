@@ -1,4 +1,5 @@
 ﻿import swDb = require('../../../mongo/pi/switch/index');
+import swLogDb = require('../../../mongo/pi/swLog/index');
 import Switch = swDb.Switch;
 import express = require('express');
 import pi = require('../../../pi/index');
@@ -16,30 +17,37 @@ router
 
     .post('/control', (req, res, next) => {
         var sw: Switch = req['sw'];
-        var value = req.body['value'];
+        var newVal = req.body['value'];
 
         // Buffer which will be sent to raspberry pi
         var buff;
-        if (value)
+
+        if (newVal)
             buff = new Buffer([sw.tcp.on]);
         else
             buff = new Buffer([sw.tcp.off]);
+
         // Send buffer to raspberry pi
         pi.write(buff, (err) => {
-            // Send response to client
+            // Send response to client, and insert a log
             if (err)
                 res.json(new ResForm(err,
                     {
                         _id: sw._id,
-                        value: value,
+                        value: newVal,
                         msg: err.message
                     }));
-            else
+            else {
                 res.json(new ResForm(null,
                     {
                         _id: sw._id,
-                        value: value
+                        value: newVal
                     }));
+                // Insert a log
+                swLogDb.insert(new swLogDb.Log(sw._id, !newVal, newVal), (err) => {
+                    console.log('+++ One switch log inserted - ' + sw._id + ': ' + !newVal + ' -> ' + newVal);
+                });
+            }
         });
 
     });

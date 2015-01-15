@@ -38,6 +38,7 @@
     <Content Include="scripts\typings\express-\express.d.ts" />
     <TypeScriptCompile Include="dump\dump.ts" />
     <TypeScriptCompile Include="scripts\typings\async\async.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\colors\colors.d.ts" />
     <TypeScriptCompile Include="scripts\typings\extend\extend.d.ts" />
     <TypeScriptCompile Include="scripts\typings\mocha\mocha.d.ts" />
     <TypeScriptCompile Include="scripts\typings\mongodb\mongodb.d.ts" />
@@ -68,6 +69,7 @@
   <ItemGroup>
     <Folder Include="dump\" />
     <Folder Include="mongoShell\" />
+    <Folder Include="scripts\typings\colors\" />
     <Folder Include="scripts\typings\extend\" />
     <Folder Include="scripts\typings\mocha\" />
     <Folder Include="scripts\typings\should\" />

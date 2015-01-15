@@ -6,3 +6,4 @@
 /// <reference path="typings/morgan/morgan.d.ts" />
 /// <reference path="typings/node/node.d.ts" />
 /// <reference path="typings/should/should.d.ts" />
+/// <reference path="typings/colors/colors.d.ts" />
