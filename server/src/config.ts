@@ -5,8 +5,8 @@ import path = require('path');
 module config {
     export var web = {
         port: 80,
-        bowerFolder: path.resolve(__dirname, '../../pi-web/bower_components'),
-        distFolder: path.resolve(__dirname, '../../pi-web/dist')
+        bowerFolder: path.resolve(__dirname, '../../web/bower_components'),
+        distFolder: path.resolve(__dirname, '../../web/dist')
     };
 
     export var mongo = {
