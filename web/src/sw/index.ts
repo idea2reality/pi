@@ -1,5 +1,5 @@
-﻿/// <reference path="models/switch.ts" />
-/// <reference path="interfaces/iswitch.ts" />
+﻿/// <reference path="models/Switch.ts" />
+/// <reference path="interfaces/ISwitch.ts" />
 /// <reference path="../index.ts" />
 
 module sw {

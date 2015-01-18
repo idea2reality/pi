@@ -1,4 +1,4 @@
-﻿/// <reference path="../interfaces/iswitch.ts" />
+﻿/// <reference path="../interfaces/ISwitch.ts" />
 
 module sw {
     export class Switch implements ISwitch {
