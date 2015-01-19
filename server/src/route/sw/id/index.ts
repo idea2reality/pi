@@ -2,7 +2,7 @@
 import swLogDb = require('../../../mongo/pi/swLog/index');
 import Switch = swDb.Switch;
 import express = require('express');
-import pi = require('../../../pi/index');
+import pi = require('../../../pi/tcp');
 import ResForm = require('../../../util/resForm');
 
 
@@ -10,13 +10,13 @@ var router = express.Router();
 router
 
     .get('/', (req, res, next) => {
-        var sw: Switch = req['sw'];
+        var sw:Switch = req['sw'];
 
         res.json(new ResForm(null, sw));
     })
 
     .post('/control', (req, res, next) => {
-        var sw: Switch = req['sw'];
+        var sw:Switch = req['sw'];
         var newVal = req.body['value'];
 
         // Buffer which will be sent to raspberry pi

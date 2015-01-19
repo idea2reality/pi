@@ -15,7 +15,7 @@ module config {
     };
 
     export var pi = {
-        ip: '192.168.137.10',
+        ip: 'localhost',
         port: 9090,
         responseTimeout: 1000
     }
