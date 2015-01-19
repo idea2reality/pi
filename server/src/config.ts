@@ -15,7 +15,8 @@ module config {
     };
 
     export var pi = {
-        ip: 'localhost',
+        //ip: 'localhost',
+        ip: 'ktj7147.iptime.org',
         port: 9090,
         responseTimeout: 1000
     }
