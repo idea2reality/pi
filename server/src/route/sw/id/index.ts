@@ -23,9 +23,9 @@ router
         var buff;
 
         if (newVal)
-            buff = new Buffer([sw.tcp.on]);
+            buff = new Buffer(sw.tcp.on);
         else
-            buff = new Buffer([sw.tcp.off]);
+            buff = new Buffer(sw.tcp.off);
 
         // Send buffer to raspberry pi
         pi.write(buff, (err) => {
